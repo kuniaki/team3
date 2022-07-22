@@ -325,7 +325,8 @@
               fetch('https://hva6jr2fce.execute-api.us-east-1.amazonaws.com/dev/', {
     method: 'PUT',
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
     },
     // body: '{"id": "1", "endpoint": "mnarodia@hhaexchange.com", "protocol": "email", "payerglobalid": "0273c757-a325-4184-a3be-2fc298149a5f", "topic": "Visit", "eventname": "VisitEVVClockedIn"}',
     body: JSON.stringify({
