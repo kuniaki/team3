@@ -331,7 +331,7 @@
             var raw = JSON.stringify({"id":id,"endpoint":endpoint,"protocol":protocol,"payerglobalid":payerglobalid,"topic":topic,"eventname":eventname});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
-                method: 'PUT',
+                method: 'GET',
                 headers: myHeaders,
                 body: raw,
                 redirect: 'follow'
