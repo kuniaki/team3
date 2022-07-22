@@ -303,14 +303,14 @@
         }
         </script>
 	<script>
-           var callAPITeam3 = (id,endpoint,plotocol,payerglobalid,topic,eventname)=>{
+           var callAPITeam3 = (id,endpoint,protocol,payerglobalid,topic,eventname)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
         //    var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
-            var raw = JSON.stringify({"id":id,"endpoint":endpoint,"protocol":plotocol,"payerglobalid":payerglobalid,"topic":topic,"eventname":eventname});
+            var raw = JSON.stringify({"id":id,"endpoint":endpoint,"protocol":protocol,"payerglobalid":payerglobalid,"topic":topic,"eventname":eventname});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'PUT',
