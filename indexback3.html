@@ -290,7 +290,7 @@
 	  </div>
 	</footer>
 		
-	<div class="reveal tiny hhax-modal" id="smallModal" data-reveal data-close-on-click="false">
+	<div class="reveal tiny hhax-modal" id="smallModal" style="max-width: 320px;" data-reveal data-close-on-click="false">
 		<div class="header"><h1>Webhook Events</h1>
 		<button class="close-button" data-close aria-label="Close modal" type="button">
 			<span aria-hidden="true">&times;</span>
@@ -304,11 +304,9 @@
 				<li><label class="input-label"><input type="checkbox" checked> EVV Clocked-Out</label></li>
 				<li><label class="input-label"><input type="checkbox" checked> Visit Missed</label></li>
 			</ul>
-			<p><label>Webhook URL<input type="url"></label></p>
-			<p><label>Secret<input type="text"></label></p>
 		</div>
 		<div class="footer">
-			<a href="subscribed.html" class="button primary" data-close onclick="">Subscribe</a>
+			<a href="subscribed.html" class="button primary" data-close>Subscribe</a>
 			<button class="button clear" data-close>Cancel</button>
 		</div>
 	</div>
@@ -321,7 +319,51 @@
 	<script src="third-party/foundation-6.7.4/js/app.js"></script> 
 	<script src="commonScripts.js"></script>
 	<script>
-	 
+                 var callAPI = (firstName,lastName)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://xrjk30lvnc.execute-api.us-east-1.amazonaws.com/dev/", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+	</script>
+	<script>
+            var callAPITeam3 = (id,endpoint,protocol,payerglobalid,topic,eventname)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+        //    var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            var raw = JSON.stringify({"id":id,"endpoint":endpoint,"protocol":protocol,"payerglobalid":payerglobalid,"topic":topic,"eventname":eventname});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'PUT',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+	//	    https://hva6jr2fce.execute-api.us-east-1.amazonaws.com/dev/
+            fetch("https://hva6jr2fce.execute-api.us-east-1.amazonaws.com/dev/", requestOptions)
+        //    fetch("https://vpr90iayuf.execute-api.us-east-1.amazonaws.com/items", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
 	</script>
   </body>
 </html>
