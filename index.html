@@ -339,8 +339,8 @@
             };
             // make API call with parameters and use promises to get response
 	//	    https://hva6jr2fce.execute-api.us-east-1.amazonaws.com/dev/
-            fetch("https://hva6jr2fce.execute-api.us-east-1.amazonaws.com/dev/", requestOptions)
-        //    fetch("https://vpr90iayuf.execute-api.us-east-1.amazonaws.com/items", requestOptions)
+        //  fetch("https://hva6jr2fce.execute-api.us-east-1.amazonaws.com/dev/", requestOptions)
+            fetch("https://vpr90iayuf.execute-api.us-east-1.amazonaws.com/items", requestOptions)
             .then(response => response.text())
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
