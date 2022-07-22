@@ -15,6 +15,14 @@
 	</style>
 </head>
 <body>
+     <form>
+        <label>First Name1 :</label>
+        <input type="text" id="fName">
+        <label>Last Name1 :</label>
+        <input type="text" id="lName">
+        <!-- set button onClick method to call function we defined passing input values as parameters -->
+        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
+    </form>
 	<div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
 	  <h2 class="title">Main Menu</h2>
 	  <button class="close-button" aria-label="Close alert" type="button" data-toggle="offCanvasLeft"> <span aria-hidden="true">&times;</span> </button>
@@ -271,6 +279,29 @@
 	<script src="third-party/foundation-6.7.4/js/vendor/foundation.min.js"></script>
 	<script src="third-party/foundation-6.7.4/js/app.js"></script> 
 	<script src="commonScripts.js"></script>
+	<script>
+                 // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (firstName,lastName)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://xrjk30lvnc.execute-api.us-east-1.amazonaws.com/dev/", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+        </script>
 	<script>
            function getThis(){
             let data = fetch('https://y4blesfxp0.execute-api.us-east-1.amazonaws.com/connectDB', {
