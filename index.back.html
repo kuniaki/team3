@@ -6,9 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>
 	Integration Framework &mdash; Self Service Portal | HHAeXchange</title>
-	<link rel="icon" type="image/png" href="../img/favicon.png">
-	<link rel="stylesheet" href="../third-party/fontawesome-pro-6/css/all.min.css">
-	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="third-party/fontawesome-pro-6/css/all.min.css">
+	<link rel="stylesheet" href="app.css">
 	<style>
 		.hhax-card-show-hide>.accordion-item>.accordion-title::before { content: none;}
 		.hhax-card-show-hide>.accordion-item.is-active>.accordion-title::before { content: none;}
@@ -16,6 +15,14 @@
 	</style>
 </head>
 <body>
+     <form>
+        <label>First Name1 :</label>
+        <input type="text" id="fName">
+        <label>Last Name1 :</label>
+        <input type="text" id="lName">
+        <!-- set button onClick method to call function we defined passing input values as parameters -->
+        <button type="button" onclick="callAPI('BBB','AAA')">Call API</button>
+    </form>
 	<div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
 	  <h2 class="title">Main Menu</h2>
 	  <button class="close-button" aria-label="Close alert" type="button" data-toggle="offCanvasLeft"> <span aria-hidden="true">&times;</span> </button>
@@ -37,31 +44,14 @@
 	  <div class="title-bar-left">
 		<button class="menu-icon" data-tooltip title="Main Menu" type="button" data-toggle="offCanvasLeft" aria-label="Menu button"></button>
 		<span class="title-bar-title">
-		  <img src="../img/logo_hhax-white.svg" class="hhax-logo" alt="HHAeXchange" style="height: 2rem;">
+		  <img src="img/logo_hhax-white.svg" class="hhax-logo" alt="HHAeXchange" style="height: 2rem;">
 		</span> </div>
 	</div>
 	<div class="top-bar show-for-large hhax-navbar" id="hhaxNav">
 	  <div class="top-bar-left flex-container">
 		<div class="flex-child-shrink"> <a href="index.php">
-		  <img src="../img/logo_hhax-white.svg" class="hhax-logo margin-bottom-half" alt="HHAeXchange">
+		  <img src="img/logo_hhax-white.svg" class="hhax-logo margin-bottom-half" alt="HHAeXchange">
 		  </a> </div>
-	  </div>
-	  <div class="flex-child-auto" style="min-width: 9rem;">
-        <ul class="dropdown menu vertical medium-horizontal float-right" data-dropdown-menu data-disable-hover="true" data-click-open="true" aria-label="Alerts and User Profile Menu" role="menubar">
-			<li>
-                <button title="User Profile Menu" aria-label="User Profile Menu"><i class="fas fa-user fa-lg margin-right-half"></i> <span class="padding-right-1">Harry Potter (Life Care Payer)</span></button>
-                <ul class="menu vertical nested">
-                    <li class="label title">Need Help?</li>                    
-					<li><a href="https://hhaxsupport.atlassian.net/servicedesk/customer/user/login?destination=portals" aria-label="Customer Support Portal (Opens in a new window)" title="Opens in a new window">Customer Support Portal</a></li>
-					<li><a href="#" aria-label="Download Application: Remote Support" title="Download application">Remote Support</a></li>
-					<li><a href="#" onClick="openWindow('livechat.php','HHAeXchange Chat',500,800)">Live Chat</a></li>
-                    <li class="label title margin-top-1">Account</li>
-                    <li><button class="clear button" data-open="editProfileModal">Edit Profile</button></li>
-					<li><button class="clear button" data-open="changePasswordModal">Change Password</button></li>
-					<li><a href="../login/login.php">Logout</a></li>
-                </ul>
-            </li>
-		  </ul>
 	  </div>
 	</div>
 	<!-- END : NAVBAR -->
@@ -79,48 +69,49 @@
 	  <div class="hhax-container grid-x grid-margin-x padding-left-3 padding-right-3">
 		<div class="card hhax-card cell large-4">
 			<div class="card-section">
-				<h2>Webhooks <img src="img/webhooks.png" style="width: 50px; margin-top: -1rem; margin-right: -.5rem" class="float-right"></h2>
-				<p>Webhooks or HTTP callbacks can be used to get near real time events. It is a lightweight API that powers one-way data sharing triggered by events. Subscribe to the events which you want to listen.</p>
-				<p class="stat margin-top-2">$5</p>
-				<p>Per 100 events</p>
-				<p><button class="button primary expanded" data-open="smallModal">Get Webhooks</button></p>
-				<h3 class="margin-top-2">Benefits</h3>
-				<ul class="input-list margin-bottom-2">
-					<li><i class="fas fa-check success margin-right-1 float-left fa-lg"></i> <p class="margin-left-2"><strong>Real-Time Data:</strong> Webhooks don&rsquo;t use a request-based system. This option allows your team to view data on a near real-time scale.</p></li>
-					<li><i class="fas fa-check success margin-right-1 float-left fa-lg"></i>
-					  <p class="margin-left-2"><strong>Supports Automation Efforts:</strong> Because data requests are event-based, you don&rsquo;t have to set up poll timings to your data center. This can help streamline data flow and automation.</p>
-					</li>
-				</ul>
-			</div>  
-		</div>
-		<div class="card hhax-card cell large-4">
-			<div class="card-section">
-				<h2>API<img src="img/api.jpg" style="width: 50px; margin-top: -1rem; margin-right: -.5rem" class="float-right"></h2>
-				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-				<p class="stat margin-top-2">$5</p>
-				<p>Per 100 calls</p>
-				<p><button class="button primary expanded">Get API</button></p>
-				<h3 class="margin-top-2">Benefits</h3>
-				<ul class="input-list margin-bottom-2">
-					<li><i class="fas fa-check success margin-right-1"></i> Lorem ipsum dolor sit</li>
-					<li><i class="fas fa-check success margin-right-1"></i> Amet consectetur adipiscing</li>
-					<li><i class="fas fa-check success margin-right-1"></i> Elit sed do eiusmod tempor</li>
-				</ul>
-			</div>  
-		</div>
-		<div class="card hhax-card cell large-4">
-			<div class="card-section">
-				<h2>Batch<img src="img/bat.jpg" style="width: 50px; margin-top: -1rem; margin-right: -.5rem" class="float-right"></h2>
-				<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit.</p>
-				<p class="stat margin-top-2">$5</p>
-				<p>Per file</p>
-				<p><button class="button primary expanded">Get Batch</button></p>
-				<h3 class="margin-top-2">Benefits</h3>
+				<h2>Web Hooks</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<p class="stat margin-top-2">$100</p>
+				<p>Per service billed monthly</p>
+				<h3 class="margin-top-2">What's included</h3>
 				<ul class="input-list margin-bottom-2">
 					<li><i class="fas fa-check success margin-right-1"></i> Lorem ipsum dolor sit</li>
 					<li><i class="fas fa-check success margin-right-1"></i> Amet consectetur adipiscing</li>
 					<li><i class="fas fa-check success margin-right-1"></i> Elit sed do eiusmod tempor</li>
 					<li><i class="fas fa-check success margin-right-1"></i> Incididunt ut labore et</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Dolore magna aliqua</li>
+				</ul>
+			</div>  
+		</div>
+		<div class="card hhax-card cell large-4">
+			<div class="card-section">
+				<h2>API</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<p class="stat margin-top-2">$100</p>
+				<p>Per service billed monthly</p>
+				<h3 class="margin-top-2">What's included</h3>
+				<ul class="input-list margin-bottom-2">
+					<li><i class="fas fa-check success margin-right-1"></i> Lorem ipsum dolor sit</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Amet consectetur adipiscing</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Elit sed do eiusmod tempor</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Incididunt ut labore et</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Dolore magna aliqua</li>
+				</ul>
+			</div>  
+		</div>
+		<div class="card hhax-card cell large-4">
+			<div class="card-section">
+				<h2>Batch</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<p class="stat margin-top-2">$100</p>
+				<p>Per service billed monthly</p>
+				<h3 class="margin-top-2">What's included</h3>
+				<ul class="input-list margin-bottom-2">
+					<li><i class="fas fa-check success margin-right-1"></i> Lorem ipsum dolor sit</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Amet consectetur adipiscing</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Elit sed do eiusmod tempor</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Incididunt ut labore et</li>
+					<li><i class="fas fa-check success margin-right-1"></i> Dolore magna aliqua</li>
 				</ul>
 			</div>  
 		</div>
@@ -128,7 +119,7 @@
 			<div class="hhax-card">
 			  <div class="card-section">
 				<ul class="accordion hhax-card-show-hide" data-accordion data-allow-all-closed="true">
-				  <li class="accordion-item" data-accordion-item> <a href="#" class="accordion-title text-center" onClick="$(this).children('svg').toggleClass('hide')">See full feature matrix <i class="fas fa-chevron-down margin-left-half"></i><i class="fas fa-chevron-up hide margin-left-half"></i></a>
+				  <li class="accordion-item is-active" data-accordion-item> <a href="#" class="accordion-title text-center" onClick="$(this).children('svg').toggleClass('hide')">See full feature matrix <i class="fas fa-chevron-down margin-left-half"></i><i class="fas fa-chevron-up hide margin-left-half"></i></a>
 					<div class="accordion-content" data-tab-content>
 						<div class="table-scroll">
 							<table class="hhax-table">
@@ -138,7 +129,7 @@
 							  <thead>
 								<tr>
 								  <th style="width: 30%"></th>
-								  <th style="width: 20%">Webhooks</th>
+								  <th style="width: 20%">Web Hooks</th>
 								  <th style="width: 20%">API</th>
 								  <th style="width: 20%">Batch</th>
 								  <th></th>
@@ -235,7 +226,7 @@
 							  <tfoot>
 								<tr>
 									<td></td>
-									<td><button class="primary button margin-bottom-0" onclick="getThis()">Get Webhooks</button></td>
+                                                                        <td><button class="primary button margin-bottom-0" onclick="callAPITeam3('1','kkudo@hhaexchange.com','email','0273c757-a325-4184-a3be-2fc298149a5f','Visit','VisitEVVClockedIn')">Get Web Hooks</button></td>
 									<td><button class="primary button margin-bottom-0">Get API</button></td>
 									<td><button class="primary button margin-bottom-0">Get Batch</button></td>
 									<td></td>
@@ -247,32 +238,23 @@
 					</div>
 				  </li>
 				</ul>
-				</div>
-			</div>  
-			<div class="hhax-card">
-			  <div class="card-section">
-				<h2 class="margin-bottom-2">Frequently Asked Questions</h2>
+				  
+				<h2 class="text-center margin-bottom-2 margin-top-3">Frequently Asked Questions</h2>
 				<div class="grid-x grid-margin-x">
-					<div class="cell large-4"><h3>How do I get started?</h3>
+					<div class="cell large-4 padding-1"><h3>How do I get started?</h3>
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
 					</div>
-					<div class="cell large-4"><h3>Is my data secure?</h3>
-					<p>We care deeply about data privacy and security and strive to keep our security practices industry-leading.
-					  Learn more about data security on our website, or contact us directly with any questions.</p> 
-					</div>
-					<div class="cell large-4"><h3>What type of support do you offer?</h3>
+					<div class="cell large-4 padding-1"><h3>Is my data secure?</h3>
+					<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p> </div>
+					<div class="cell large-4 padding-1"><h3>What type of support do you offer?</h3>
 					<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit</p> </div>
 				</div>
-				 
-			</div>
-			</div>  
-			<div class="hhax-card">
-			  <div class="card-section">
-				<h2 class="margin-bottom-2">Have Other Questions?</h2>
-				<p class="lead"><a href="#">Contact us</a> so we can help.</p>
+				  
+				<h2 class="text-center margin-bottom-2 margin-top-3">Have Other Questions?</h2>
+				<p class="lead text-center"><a href="#">Contact us</a> so we can help.</p>
 				   
-			</div>
-			</div>    
+			  </div>
+			</div>  
 		</div>
 	  </div>
 	</main>
@@ -290,37 +272,58 @@
 		</div>
 	  </div>
 	</footer>
-		
-	<div class="reveal tiny hhax-modal" id="smallModal" style="max-width: 320px;" data-reveal data-close-on-click="false">
-		<div class="header"><h1>Webhook Events</h1>
-		<button class="close-button" data-close aria-label="Close modal" type="button">
-			<span aria-hidden="true">&times;</span>
-		</button></div>
-		<div class="content">
-			<p class="lead">Select one or more desired webhook events</p>
-			<ul class="input-list">
-				<li><label class="input-label"><input type="checkbox" checked> Schedule Created</label></li>
-				<li><label class="input-label"><input type="checkbox" checked> Visit Updated</label></li>
-				<li><label class="input-label"><input type="checkbox" checked> EVV Clocked-In</label></li>
-				<li><label class="input-label"><input type="checkbox" checked> EVV Clocked-Out</label></li>
-				<li><label class="input-label"><input type="checkbox" checked> Visit Missed</label></li>
-			</ul>
-		</div>
-		<div class="footer">
-			<button class="button primary" data-close>Subscribe</button>
-			<button class="button clear" data-close>Cancel</button>
-		</div>
 	</div>
-		
-	</div>
-	<script defer src="../third-party/fontawesome-pro-6/js/all.min.js"></script>
-	<script src="../third-party/foundation-6.7.4/js/vendor/jquery.js"></script> 
-	<script src="../third-party/foundation-6.7.4/js/vendor/what-input.js"></script> 
-	<script src="../third-party/foundation-6.7.4/js/vendor/foundation.min.js"></script>
-	<script src="../third-party/foundation-6.7.4/js/app.js"></script> 
-	<script src="../js/commonScripts.js"></script>
+	<script defer src="third-party/fontawesome-pro-6/js/all.min.js"></script>
+	<script src="third-party/foundation-6.7.4/js/vendor/jquery.js"></script> 
+	<script src="third-party/foundation-6.7.4/js/vendor/what-input.js"></script> 
+	<script src="third-party/foundation-6.7.4/js/vendor/foundation.min.js"></script>
+	<script src="third-party/foundation-6.7.4/js/app.js"></script> 
+	<script src="commonScripts.js"></script>
 	<script>
-	 
-	</script>
-  </body>
+                 // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (firstName,lastName)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://xrjk30lvnc.execute-api.us-east-1.amazonaws.com/dev/", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+        </script>
+	<script>
+           var callAPITeam3 = (id,endpoint,protocol,payerglobalid,topic,eventname)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+        //    var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            var raw = JSON.stringify({"id":id,"endpoint":endpoint,"protocol":protocol,"payerglobalid":payerglobalid,"topic":topic,"eventname":eventname});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'PUT',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://vpr90iayuf.execute-api.us-east-1.amazonaws.com/items", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+        </script>
+</body>
 </html>
