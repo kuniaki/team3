@@ -1,0 +1,231 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+	My  Integration Framework Subscriptions | HHAeXchange</title>
+	
+	<link rel="stylesheet" href="third-party/fontawesome-pro-6/css/all.min.css">
+	<link rel="stylesheet" href="app.css">
+	<style>
+		.hhax-card-show-hide>.accordion-item>.accordion-title::before { content: none;}
+		.hhax-card-show-hide>.accordion-item.is-active>.accordion-title::before { content: none;}
+		.row-header th { background-color: #DCF1F0; }
+	</style>
+</head>
+<body onLoad="$('.callout.success').removeClass('hide'); $('.callout.success').toggle(); successTimeout();">
+	<div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+	  <h2 class="title">Main Menu</h2>
+	  <button class="close-button" aria-label="Close alert" type="button" data-toggle="offCanvasLeft"> <span aria-hidden="true">&times;</span> </button>
+	  <ul class="vertical menu" data-accordion-menu>
+		<li>menu here for mobile</li>
+	  </ul>
+	</div>
+	<div class="off-canvas position-right" id="offCanvasRight" data-off-canvas>
+	  <h2 class="title">User Profile Menu</h2>
+	  <button class="close-button" aria-label="Close alert" type="button" data-toggle="offCanvasRight"> <span aria-hidden="true">&times;</span> </button>
+	  <ul class="vertical menu">
+		<li class="label title">Need Help?</li>	
+	  </ul>  
+	</div>
+	<div class="off-canvas-content" data-off-canvas-content>
+		<!-- START : NAVBAR -->
+	<a href="#mainContent" class="skip-link button hollow">Skip to main content</a>
+	<div class="title-bar hide-for-large">
+	  <div class="title-bar-left">
+		<button class="menu-icon" data-tooltip title="Main Menu" type="button" data-toggle="offCanvasLeft" aria-label="Menu button"></button>
+		<span class="title-bar-title">
+		  <img src="img/logo_hhax-white.svg" class="hhax-logo" alt="HHAeXchange" style="height: 2rem;">
+		</span> </div>
+	</div>
+	<div class="top-bar show-for-large hhax-navbar" id="hhaxNav">
+	  <div class="top-bar-left flex-container">
+		<div class="flex-child-shrink"> <a href="index.php">
+		  <img src="img/logo_hhax-white.svg" class="hhax-logo margin-bottom-half" alt="HHAeXchange">
+		  </a> </div>
+	  </div>
+	  <div class="flex-child-auto" style="min-width: 9rem;">
+        <ul class="dropdown menu vertical medium-horizontal float-right" data-dropdown-menu data-disable-hover="true" data-click-open="true" aria-label="Alerts and User Profile Menu" role="menubar">
+			<li>
+                <button title="User Profile Menu" aria-label="User Profile Menu"><i class="fas fa-user fa-lg margin-right-half"></i> <span class="padding-right-1">Harry Potter (Life Care Payer)</span></button>
+                <ul class="menu vertical nested">
+                    <li class="label title">Need Help?</li>                    
+					<li><a href="https://hhaxsupport.atlassian.net/servicedesk/customer/user/login?destination=portals" aria-label="Customer Support Portal (Opens in a new window)" title="Opens in a new window">Customer Support Portal</a></li>
+					<li><a href="#" aria-label="Download Application: Remote Support" title="Download application">Remote Support</a></li>
+					<li><a href="#" onClick="openWindow('livechat.php','HHAeXchange Chat',500,800)">Live Chat</a></li>
+                    <li class="label title margin-top-1">Account</li>
+                    <li><button class="clear button" data-open="editProfileModal">Edit Profile</button></li>
+					<li><button class="clear button" data-open="changePasswordModal">Change Password</button></li>
+					<li><a href="login/login.php">Logout</a></li>
+                </ul>
+            </li>
+		  </ul>
+	  </div>
+	</div>
+	<!-- END : NAVBAR -->
+
+	<!-- Instructions or Links for Prototype Users -->
+
+	<!-- START : MAIN CONTENT -->
+	<main class="grid-container fluid hhax-main-content" id="mainContent">
+	  <div class="grid-x grid-margin-x hhax-page-header">
+		<div class="cell medium-8 large-9">
+		  <h1 class="padding-left-3">My Integration Framework Subscriptions</h1>
+		</div>
+		<div class="cell medium-4 large-3"></div>
+	  </div>
+	  <div class="hhax-container grid-x grid-margin-x padding-left-3 padding-right-3">
+		<div class="cell">
+		  <div class="callout success hhax-alert hide" role="alert" data-closable>
+				<button class="close-button" aria-label="Close alert" type="button" data-close>
+					<span aria-hidden="true">&times;</span>
+				</button> 
+				Thank you! You are now subscribed to your selection of Webhooks events.
+			</div>
+		</div>
+		<div class="card hhax-card cell large-4" style="height: 450px;">
+			<div class="card-section">
+				<div class="grid-y medium-grid-frame">
+				  <div class="cell auto medium-cell-block-container">
+					<h2>Webhooks <img src="img/webhooks.png" style="width: 50px; margin-top: -.5rem;" class="float-right"></h2>
+					<p>Webhooks or HTTP callbacks can be used to get near real time events. It is a lightweight API that powers one-way data sharing triggered by events.</p>
+					<ul class="accordion hhax-show-hide" data-accordion data-allow-all-closed="true">
+						<li class="accordion-item" data-accordion-item> <a href="#" class="accordion-title">Benefits</a>
+						  <div class="accordion-content" data-tab-content>
+								<ul class="input-list margin-bottom-2">
+									<li><i class="fas fa-check success margin-right-1 float-left fa-lg"></i> <p class="margin-left-2"><strong>Real-Time Data:</strong> Webhooks don&rsquo;t use a request-based system. This option allows your team to view data on a near real-time scale.</p></li>
+									<li><i class="fas fa-check success margin-right-1 float-left fa-lg"></i>
+									  <p class="margin-left-2"><strong>Supports Automation Efforts:</strong> Because data requests are event-based, you don&rsquo;t have to set up poll timings to your data center. This can help streamline data flow and automation.</p>
+									</li>
+								</ul>
+						   </div>
+						</li>
+					</ul>
+					<h3 class="margin-top-2">You are currently subscribed to:</h3>
+					<ul class="input-list">
+						<!--<li><i class="fas fa-check success fa-lg margin-right-half"></i> Schedule Created </li>
+						--><li><i class="fas fa-check success fa-lg margin-right-half"></i> Visit Updated </li>
+						<li><i class="fas fa-check success fa-lg margin-right-half"></i> EVV Clocked-In </li>
+						<li><i class="fas fa-check success fa-lg margin-right-half"></i> EVV Clocked-Out </li>
+						<li><i class="fas fa-check success fa-lg margin-right-half"></i> Visit Missed </li>
+					</ul>
+				  </div>
+				  <div class="cell shrink footer">
+					<button class="primary button expanded" data-open="editSubscriptModal">Edit Subscriptions</button>
+				  </div>
+				</div>
+				
+				
+				
+				
+			</div>  
+		</div>
+		<div class="card hhax-card cell large-4">
+			<div class="card-section">
+			  <div class="grid-y medium-grid-frame">
+				<div class="cell auto medium-cell-block-container">
+				<h2>API<img src="img/api.jpg" style="width: 50px; margin-top: -.5rem;" class="float-right"></h2>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+				<ul class="accordion hhax-show-hide" data-accordion data-allow-all-closed="true">
+						<li class="accordion-item" data-accordion-item> <a href="#" class="accordion-title">Benefits</a>
+						  <div class="accordion-content" data-tab-content>
+							<ul class="input-list margin-bottom-2">
+								<li><i class="fas fa-check success margin-right-1"></i> Lorem ipsum dolor sit</li>
+								<li><i class="fas fa-check success margin-right-1"></i> Amet consectetur adipiscing</li>
+								<li><i class="fas fa-check success margin-right-1"></i> Elit sed do eiusmod tempor</li>
+							</ul>
+						   </div>
+						</li>
+					</ul>
+					<h3 class="margin-top-2">You are currently subscribed to:</h3>
+					<p class="no-record text-left">No API calls subscribed</p>
+				</div>
+				  <div class="cell shrink footer">
+					<button class="primary button expanded" data-open="smallModal">Get API</button>
+				  </div>
+				</div>
+			</div>  
+		</div>
+		<div class="card hhax-card cell large-4">
+			<div class="card-section">
+			  <div class="grid-y medium-grid-frame">
+				<div class="cell auto medium-cell-block-container">
+				<h2>Batch<img src="img/bat.jpg" style="width: 50px; margin-top: -.5rem;" class="float-right"></h2>
+				<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit.</p>
+				<ul class="accordion hhax-show-hide" data-accordion data-allow-all-closed="true">
+						<li class="accordion-item" data-accordion-item> <a href="#" class="accordion-title">Benefits</a>
+						  <div class="accordion-content" data-tab-content>
+							<ul class="input-list margin-bottom-2">
+								<li><i class="fas fa-check success margin-right-1"></i> Lorem ipsum dolor sit</li>
+								<li><i class="fas fa-check success margin-right-1"></i> Amet consectetur adipiscing</li>
+								<li><i class="fas fa-check success margin-right-1"></i> Elit sed do eiusmod tempor</li>
+								<li><i class="fas fa-check success margin-right-1"></i> Incididunt ut labore et</li>
+							</ul>
+						   </div>
+						</li>
+					</ul>
+					<h3 class="margin-top-2">You are currently subscribed to:</h3>
+					<p class="no-record text-left">No batch files subscribed</p>
+				  </div>
+				  <div class="cell shrink footer">
+					<button class="button primary expanded">Get Batch</button>
+				  </div>
+				</div>
+			</div>
+		 
+		</div>
+		<div class="cell">
+
+		</div>
+	  </div>
+	</main>
+	<!-- END : MAIN CONTENT -->
+	<footer class="hhax-footer hide-for-small-only">
+	  <div class="grid-container fluid">
+		<div class="grid-x grid-margin-x">
+		  <div class="cell">
+			<p>© 2022 HHAeXchange. All Rights Reserved. <br>
+			  <small>Integration Framework  &mdash; Self Service Portal</small>
+			</p>
+			<p><a href="tel:7034445555"><i class="fas fa-phone-alt magin-right-half"></i> Call us</a><span class="padding-left-1 padding-right-1"> | </span><a href="mailto:support@hhaexchange.com"><i class="fas fa-envelope magin-right-half"></i> Email Us</a></p>
+			
+		  </div>
+		</div>
+	  </div>
+	</footer>
+		
+	<div class="reveal tiny hhax-modal" id="editSubscriptModal" data-reveal data-close-on-click="false">
+		<div class="header"><h1>Edit Subscription</h1>
+		<button class="close-button" data-close aria-label="Close modal" type="button">
+			<span aria-hidden="true">&times;</span>
+		</button></div>
+		<div class="content">
+			<p class="lead">Webhook Events</p>
+			<ul class="input-list">
+				<li><label class="input-label"><input type="checkbox"> Schedule Created</label></li>
+				<li><label class="input-label"><input type="checkbox" checked> Visit Updated</label></li>
+				<li><label class="input-label"><input type="checkbox" checked> EVV Clocked-In</label></li>
+				<li><label class="input-label"><input type="checkbox" checked> EVV Clocked-Out</label></li>
+				<li><label class="input-label"><input type="checkbox" checked> Visit Missed</label></li>
+			</ul>
+			<p>Cost: $5 Per 100 events</p>
+		</div>
+		<div class="footer">
+			<button class="button primary" data-close>Save</button>
+			<button class="button clear" data-close>Cancel</button>
+		</div>
+	</div>
+		
+	</div>
+	<script defer src="third-party/fontawesome-pro-6/js/all.min.js"></script>
+	<script src="third-party/foundation-6.7.4/js/vendor/jquery.js"></script> 
+	<script src="third-party/foundation-6.7.4/js/vendor/what-input.js"></script> 
+	<script src="third-party/foundation-6.7.4/js/vendor/foundation.min.js"></script>
+	<script src="third-party/foundation-6.7.4/js/app.js"></script> 
+	<script>
+	 
+	</script>
+  </body>
+</html>
